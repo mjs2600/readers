@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+require "thor"
+require "~/lib/readers/hn.rb"
+
+class ReadCLI < Thor
+  desc "get_articles [NUMBER_OF_ARTICLES]", "Print out the new HN articles"
+  def hn(articles=10)
+    ::HNScraper.pretty_print(articles)
+  end
+
+end
+
+ReadCLI.start(ARGV)
